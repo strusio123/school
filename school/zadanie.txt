@@ -1,0 +1,62 @@
+def loadCleanData(ciagi.txt):
+  with open(ciagi.txt) as data:
+    content = data.readlines() 
+    content = [x.strip() for x in content]
+  return content
+
+series = loadCleanData("ciagi.txt")
+
+def doubleCycle():
+  counter = 0
+  for serie in series:
+    if (len(serie) % 2 == 0): 
+      half = int(len(serie) / 2) 
+      if serie[:half] == serie[half:]: 
+        counter += 1
+
+  return counter
+
+
+  ____________________________________________________
+
+  def twinOnes():
+  counter = 0
+  for serie in series:
+    for i in range(0, len(serie)):
+      if i < len(serie) - 1:
+        if serie[i] == "1" and serie[i + 1] == "1":
+            break
+        else:
+          if i == len(serie) - 2:
+            counter += 1
+
+  return counter
+
+
+  ______________________________________________________
+
+  def isPrime(n):
+  if n == 2 or n == 3: return True
+  if n < 2 or n%2 == 0: return False
+  if n < 9: return True
+  if n%3 == 0: return False
+  r = int(n**0.5)
+  f = 5
+  while f <= r:
+    if n%f == 0: return False
+    if n%(f+2) == 0: return False
+    f +=6
+    
+  return True
+
+  def hasPrimeDividers(number):
+  for divider in range(2, number + 1): 
+    if (isPrime(divider)): 
+      if number % divider == 0:
+        if (isPrime(number / divider)): 
+          return True
+        else:
+          return False
+          break
+
+  return False

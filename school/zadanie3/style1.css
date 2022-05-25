@@ -1,0 +1,22 @@
+
+    body {
+        background-size: cover;
+    }
+    .menu{
+        background-color: blue;
+        opacity: 0.4;
+        width: 30%;
+        height: 250px;
+    }
+    a{
+        font-size: 20px;
+        height: 50px;
+        color: azure;
+        transition-duration: 2s;
+        text-align: left;
+    }
+    a:hover{
+        font-size: 40px;
+        color: azure;
+        transform:translateX(30px)  translateY(10px)
+    }
